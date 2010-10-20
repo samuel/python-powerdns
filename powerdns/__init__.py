@@ -62,7 +62,7 @@ class PowerDNSBackend(object):
                         response = self.backend.query(q)
                     elif _type == 'AXFR':
                         # logger.info("AXFR")
-                        response = self.backend.axfr(**query) or []
+                        response = self.backend.axfr(*query) or []
                     if response:
                         self.write("\n".join(str(x) for x in response))
                     self.write("END")
